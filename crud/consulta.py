@@ -1,11 +1,14 @@
 import sys
 import os
-
+from tabulate import tabulate
 
 ruta_conexion_bd = os.path.abspath(os.path.join(os.path.dirname(__file__),"..","conexion"))
 sys.path.append(ruta_conexion_bd)
 from conexion import obtener_conexion
 
+ruta_limpiar = os.path.abspath(os.path.join(os.path.dirname(__file__),"..","utils"))
+sys.path.append(ruta_limpiar)
+from limpiar import limpiar_pantalla
 
 def consultas(tabla):
     conexion = obtener_conexion()
@@ -17,52 +20,95 @@ def consultas(tabla):
         cursor = conexion.cursor()
  
     # Tabla Clientes
+        limpiar_pantalla()
         if tabla == "Clientes":
+            print("Consulta de Clientes")
+            print("---------------- \n")
             sql = "SELECT * FROM clientes"
             cursor.execute(sql)
             resultado = cursor.fetchall()
-            for cliente in resultado:
-                print(f"Código Cliente: {cliente[0]}, Nombre: {cliente[1]}, Apellido: {cliente[2]}, Código Postal: {cliente[3]}, CIF o NIE: {cliente[4]}")
+            
+            encabezados_clientes = ["Código Cliente", "Nombre", "Apellido", "Código Postal", "CIF/NIE"]
+            tabla_cliente = [list(cliente) for cliente in resultado]
+            print(tabulate(tabla_cliente, headers=encabezados_clientes, tablefmt='grid'))
+         
     
     # Tabla Código Postal
+     
         if tabla == "Codigo Postal":
+            print("Consulta de Codigo Postal")
+            print("---------------- \n")
             sql = "SELECT * FROM codigo_postal"
             cursor.execute(sql)
             resultado = cursor.fetchall()
-            for codigopostal in resultado:
-                print(f"Código-Postal: {codigopostal[0]}, Provincia: {codigopostal[1]}")
+           
+            encabezado_codigo = ["CP","Provincia"]
+            tabla_codigo = [list(codigopostal) for codigopostal in resultado]
+            print(tabulate(tabla_codigo,headers=encabezado_codigo,tablefmt='grid'))
     
     # Tabla Población
+       
         if tabla == "Poblacion":
+            print("Consulta de Población")
+            print("---------------- \n")
             sql = "SELECT * FROM poblaciones"
             cursor.execute(sql)
             resultado = cursor.fetchall()
-            for poblacion in resultado:
-                print(f"Código-Postal: {poblacion[0]}, Población: {poblacion[1]}")
+
+            encabezado_poblacion = ["CP", "Población"]
+            tabla_poblacion = [list(poblacion) for poblacion in resultado]
+            print(tabulate(tabla_poblacion, headers=encabezado_poblacion, tablefmt='grid'))
 
     # Tabla Provincias
         if tabla == "Provincias":
+            print("Consulta de Provincias")
+            print("---------------- \n")
             sql = "SELECT * FROM provincias"
             cursor.execute(sql)
             resultado = cursor.fetchall()
-            for provincia in resultado:
-                print(f"Código de Provincia: {provincia[0]}, Provincia: {provincia[1]}")
-    
-    # Tabla Banco
-        if tabla == "Entidades Bancarias":
-            sql = "SELECT * FROM bancos"
-            cursor.execute(sql)
-            resultado = cursor.fetchall()
-            for banco in resultado:
-                print(f"Código del banco: {banco[0]}, IBAN: {banco[1]}, Nombre del Banco: {banco[2]}, SWIFT-BCI: {banco[3]}")
 
-    # Tabla Dirección Envío
-        if tabla == "Direcciones de Envío":
-            sql = "SELECT * FROM direccion_envio"
+            encabezado_provincias = ["CP", "Provincias"]
+            tabla_provincias = [list(provincias) for provincias in resultado]
+            print(tabulate(tabla_provincias, headers=encabezado_provincias, tablefmt='grid'))
+
+    # Tabla Banco
+     
+        if tabla == "Entidades Bancarias":
+            print("Consulta de Entidades Bancarias")
+            print("---------------- \n")
+            sql = "SELECT `codigo_banco`, `iban`, `nombre_banco`, `swift_bci` FROM bancos"
             cursor.execute(sql)
             resultado = cursor.fetchall()
-            for direccion in resultado:
-                print(f"Código Cliente: {direccion[0]}, Dirección de Envío: {direccion[1]}, Código Postal: {direccion[2]}, Nombre del Cliente: {direccion[3]}, Código-Población: {direccion[4]}, Código-Provincia: {direccion[5]}")
+
+            encabezado_banco = ["Código", "IBAN", "Bancos", "SWIFT-BIC"]
+            tabla_banco = [list(banco) for banco in resultado]
+            print(tabulate(tabla_banco, headers=encabezado_banco, tablefmt='grid'))
+
+    # Tabla Dirección 
+     
+        if tabla == "Direcciones de Envío":
+            print("Consulta de Direcciones de envío")
+            print("---------------- \n")
+            sql = "SELECT `codigo_cliente`, `direccion_envio`, `codigo_postal`, `nombre_cliente`, `poblacion`, `provincia` FROM direccion_envio"
+            cursor.execute(sql)
+            resultado = cursor.fetchall()
+
+            encabezado_direccion_envio = ["Codigo Cliente", "Direccion Envio", "Codigo Postal", "Nombre Cliente", "Poblacion", "Provincia"]
+            tabla_direccion_envio = [list(direccion_envio) for direccion_envio in resultado]
+            print(tabulate(tabla_direccion_envio, headers=encabezado_direccion_envio, tablefmt='grid'))
+
+        
+# Tabla Cabecera y Líneas
+        if tabla == "Listado de Facturas":
+            print("Listado de Facturas")
+            sql = " SELECT numero_factura,codigo_cliente,nombre_cliente,total_factura FROM cabecera"
+            cursor.execute(sql)
+            resultado = cursor.fetchall()
+            encabezados_cabecera = ["Numero Factura", "Codigo Cliente", "Nombre","Total"]
+            tabla_cabecera = [list(cabecera) for cabecera in resultado]
+            print(tabulate(tabla_cabecera, headers=encabezados_cabecera, tablefmt='grid'))
+               
+ 
 
     except Exception as e:
         print("Error al consultar datos: ", e)

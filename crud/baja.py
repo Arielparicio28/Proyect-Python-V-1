@@ -6,6 +6,10 @@ ruta_conexion_bd = os.path.abspath(os.path.join(os.path.dirname(__file__),"..","
 sys.path.append(ruta_conexion_bd)
 from conexion import obtener_conexion, cerrar
 
+ruta_limpiar = os.path.abspath(os.path.join(os.path.dirname(__file__),"..","utils"))
+sys.path.append(ruta_limpiar)
+from limpiar import limpiar_pantalla
+
 
 def baja(tabla):
     conexion = obtener_conexion()
@@ -16,28 +20,36 @@ def baja(tabla):
 
     try:
         cursor = conexion.cursor()
- 
+
+        limpiar_pantalla()
+
     # Tabla Clientes
         if tabla == "Clientes":
-            codigo_cliente = input("Introduce el codigo de cliente para eliminar: ")
+            print("Baja de Clientes")
+            print("---------------- \n")
+            codigo_cliente = input("Código de cliente a eliminar: ")
             sql = "DELETE FROM clientes WHERE codigo_cliente = %s"
             valores = (codigo_cliente,)
             cursor.execute(sql, valores)
             conexion.commit()
-            print("Cliente eliminado exitosamente.")
+            print("Cliente eliminado  samente.")
     
     # Tabla código postal
         if tabla == "Codigo Postal":
-            codigo_postal = input("Escriba el código postal a eliminar: ")
+            print("Baja de Codigo Postal")
+            print("---------------- \n")
+            codigo_postal = input("Código Postal a eliminar: ")
             sql = "DELETE FROM codigo_postal WHERE codigo = %s"
             valores = (codigo_postal,)
             cursor.execute(sql, valores)
             conexion.commit()
-            print("Código postal eliminado correctamente.")
+            print("Código Postal eliminado correctamente.")
     
     # Tabla población
         if tabla == "Poblacion":
-            codigo_poblacion = input("Escriba el código postal de la población a eliminar: ")
+            print("Baja de Población")
+            print("---------------- \n")
+            codigo_poblacion = input("Código Postal de la población a eliminar: ")
             sql = "DELETE FROM poblaciones WHERE codigo = %s"
             valores = (codigo_poblacion,)
             cursor.execute(sql, valores)
@@ -46,7 +58,9 @@ def baja(tabla):
 
     # Tabla provincias
         if tabla == "Provincias":
-            codigo_provincia = input("Escriba el código postal de la provincia a eliminar: ")
+            print("Baja de Provincias")
+            print("---------------- \n")
+            codigo_provincia = input("Código Postal de la provincia a eliminar: ")
             sql = "DELETE FROM provincias WHERE codigo = %s"
             valores = (codigo_provincia,)
             cursor.execute(sql, valores)
@@ -55,16 +69,20 @@ def baja(tabla):
     
     # Tabla banco
         if tabla == "Entidades Bancarias":
-            iban = input("Escriba el número de cuenta (IBAN) del banco a eliminar: ")
+            print("Baja de Entidades Bancarias")
+            print("---------------- \n")
+            iban = input("Número de cuenta (IBAN) del banco a eliminar: ")
             sql = "DELETE FROM bancos WHERE iban = %s"
             valores = (iban,)
             cursor.execute(sql, valores)
             conexion.commit()
             +print("Banco eliminado correctamente.")
 
-    # Tabla dirección de envío
+    # Tabla dirección de envío 
         if tabla == "Direcciones de Envío":
-            codigoPosenvio = input("Escriba el código postal de envío a eliminar: ")
+            print("Baja de Direcciones de envío")
+            print("---------------- \n")
+            codigoPosenvio = input("Código Postal de envío a eliminar: ")
             sql = "DELETE FROM direccion_envio WHERE codigo_postal = %s"
             valores = (codigoPosenvio,)
             cursor.execute(sql, valores)

@@ -8,10 +8,9 @@ def obtener_conexion():
         host="localhost",
         user="root",
         password="",
-        database="proyecto"  # Especifica el nombre de tu base de datos aquí
+        database="proyectoGrupal"  # Especifica el nombre de tu base de datos aquí
     )
         if connection.is_connected():
-            print("Conexión exitosa a la base de datos.")
             return connection
     except Error as e:
         print(f'Error al conectar a la base de datos: {e}')

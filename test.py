@@ -114,5 +114,3 @@ def modificacion(tabla):
         conexion.close()
         input("Presione Enter para continuar...")
 
-# Ejemplo de uso
-modificacion("Clientes")

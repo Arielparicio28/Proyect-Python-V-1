@@ -101,12 +101,14 @@ def consultas(tabla):
 # Tabla Cabecera y Líneas
         if tabla == "Listado de Facturas":
             print("Listado de Facturas")
-            sql = " SELECT numero_factura,codigo_cliente,nombre_cliente,total_factura FROM cabecera"
+            sql = " SELECT numero_factura,codigo_cliente,nombre_cliente,fecha,total_factura FROM cabecera"
             cursor.execute(sql)
             resultado = cursor.fetchall()
-            encabezados_cabecera = ["Numero Factura", "Codigo Cliente", "Nombre","Total"]
+            encabezados_cabecera = ["Numero Factura", "Codigo Cliente", "Nombre","Fecha","Total"]
             tabla_cabecera = [list(cabecera) for cabecera in resultado]
+            total_general = sum(row[4] for row in resultado)
             print(tabulate(tabla_cabecera, headers=encabezados_cabecera, tablefmt='grid'))
+            print(f"\nTotal General: {total_general}")
                
  
 

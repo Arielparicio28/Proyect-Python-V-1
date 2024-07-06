@@ -41,7 +41,7 @@ CREATE TABLE `bancos` (
 
 INSERT INTO `bancos` (`por_defecto`, `codigo_banco`, `iban`, `nombre_banco`, `swift_bci`) VALUES
 ('1', 49, '21000418450200051332', 'SANTANDER', 'BSCHESMMXXX'),
-('', 91, '21000418450200051332', 'BBVA', 'BBVAESMMXXX');
+('2', 91, '21000418450200051332', 'BBVA', 'BBVAESMMXXX');
 
 -- --------------------------------------------------------
 
@@ -81,22 +81,14 @@ CREATE TABLE `cabecera` (
 --
 
 INSERT INTO `cabecera` (`numero_factura`, `codigo_cliente`, `codigo_postal`, `nombre_cliente`, `poblacion_cliente`, `provincia_cliente`, `fecha`, `importe_producto`, `total_factura`, `iban`, `nombre_banco`, `nombre_vendedor`, `apellidos_vendedor`, `poblacion_empresa`, `provincia_empresa`, `cif_nie_vendedor`, `codigo_postal_empresa`, `codigo_banco`, `swift_bci`, `direccion_envio`, `codigo_postal_envio`, `nombre_cliente_envio`, `poblacion_envio`, `provincia_envio`) VALUES
-(1, 1, 'Castelldef', 'Ariel', 'Castelldefels', 'Castelldefels', '2024-06-21', 285.00, 344.85, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 0, '', '', '', '', '', ''),
-(2, 3, 'Sta Coloma', 'Jhon', 'Sta Coloma de Cervello', 'Sta Coloma de Cervello', '2024-06-21', 255.00, 308.55, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 0, '', '', '', '', '', ''),
-(3, 3, 'Sta Coloma', 'Jhon', 'Sta Coloma de Cervello', 'Sta Coloma de Cervello', '2024-06-25', 240.00, 290.40, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 0, '', '', '', '', '', ''),
-(4, 1, 'Castelldef', 'Ariel', 'Castelldefels', 'Castelldefels', '2024-06-25', 385.00, 465.85, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 0, '', '', '', '', '', ''),
-(5, 4, 'Abadia de ', 'Robert', 'Abadia de San Nicolas', 'Abadia de San Nicolas', '2024-06-25', 545.00, 659.45, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 0, '', '', '', '', '', ''),
-(6, 3, 'Sta Coloma', 'Jhon', 'Sta Coloma de Cervello', 'Sta Coloma de Cervello', '2024-06-25', 4250.00, 5142.50, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 0, '', '', '', '', '', ''),
-(7, 1, 'Castelldef', 'Ariel', 'Castelldefels', 'Castelldefels', '2024-06-25', 19750.00, 23897.50, 'IBAN123456789', 'Banco de Ejemplo', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 91, '', '', '', '', '', ''),
-(8, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 3850.00, 4658.50, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', '', '', '', '', ''),
-(9, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 5065.00, 6128.65, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(10, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 225.00, 272.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(11, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 225.00, 272.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(12, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 250.00, 302.50, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(13, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 330.00, 399.30, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(14, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 225.00, 272.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(15, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 325.00, 393.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
-(16, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 375.00, 453.75, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Fallas 56', '46002', 'Santiago', '46002', '46');
+(1, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 5065.00, 6128.65, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(2, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 225.00, 272.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(3, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 225.00, 272.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(4, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 250.00, 302.50, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(5, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 330.00, 399.30, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(6, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 225.00, 272.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(7, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 325.00, 393.25, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Abadia 15', '46001', 'Ariel ', '46001', '46'),
+(8, 5, 'Fallas', 'Santiago', 'Fallas', 'Fallas', '2024-06-25', 375.00, 453.75, '21000418450200051332', 'SANTANDER', 'Audi', 'S.A', 'Aragon', 'Madrid', '12345678P', '09876', 49, 'BSCHESMMXXX', 'Fallas 56', '46002', 'Santiago', '46002', '46');
 
 -- --------------------------------------------------------
 
@@ -118,9 +110,9 @@ CREATE TABLE `clientes` (
 
 INSERT INTO `clientes` (`codigo_cliente`, `nombre`, `apellido`, `codigo_postal`, `cif_nie`) VALUES
 (1, 'Ariel', 'Aparicio', '08860', 'Z0709875P'),
-(3, 'Jhon', 'Herrera', '08690', '07298328A'),
-(4, 'Robert', 'Rodriguez', '46001', '098765432R'),
-(5, 'Santiago', 'Gomez', '46002', '09876543R');
+(2, 'Jhon', 'Herrera', '08690', '07298328A'),
+(3, 'Robert', 'Rodriguez', '46001', '098765432R'),
+(4, 'Santiago', 'Gomez', '46002', '09876543R');
 
 -- --------------------------------------------------------
 

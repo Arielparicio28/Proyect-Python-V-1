@@ -1,4 +1,5 @@
 from conexion import obtener_conexion
+from tabulate import tabulate
 
 def consultas(tabla):
     conexion = obtener_conexion()
@@ -6,10 +7,8 @@ def consultas(tabla):
         return {"error": "No se pudo establecer la conexión a la base de datos."}
     
     try:
-        cursor = conexion.cursor(dictionary=True)
+        cursor = conexion.cursor()
         resultados = []
-        encabezados = []
-        
         if tabla == "Clientes":
             sql = "SELECT * FROM clientes"
             cursor.execute(sql)
@@ -52,4 +51,16 @@ def consultas(tabla):
     finally:
         cursor.close()
         conexion.close()
-#Funciona desde el backend pero no desde el frontend.
+
+
+#Funciona asi
+""" @app.route('/clientes', methods=['GET'])
+def obtener_clientes():
+    conexion = obtener_conexion()
+    cursor = conexion.cursor(dictionary=True)
+    query = "SELECT * FROM clientes"
+    cursor.execute(query)
+    datos = cursor.fetchall()
+    cursor.close()
+    cerrar(conexion)
+    return datos """

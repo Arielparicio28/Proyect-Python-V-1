@@ -1,11 +1,6 @@
 import sys
 import os
 
-ruta_conexion_bd = os.path.abspath(os.path.join(os.path.dirname(__file__),"..","conexion"))
-sys.path.append(ruta_conexion_bd)
-
-from conexion import cerrar,obtener_conexion
-
 ruta_crud = os.path.abspath(os.path.join(os.path.dirname(__file__),"..","crud"))
 sys.path.append(ruta_crud)
 

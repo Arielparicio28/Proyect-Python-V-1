@@ -53,3 +53,19 @@ def consultas(tabla):
         cursor.close()
         conexion.close()
 #Funciona desde el backend pero no desde el frontend.
+
+
+
+
+
+#Funciona asi esto estaba en mi archivo app.py
+""" @app.route('/clientes', methods=['GET'])
+def obtener_clientes():
+    conexion = obtener_conexion()
+    cursor = conexion.cursor(dictionary=True)
+    query = "SELECT * FROM clientes"
+    cursor.execute(query)
+    datos = cursor.fetchall()
+    cursor.close()
+    cerrar(conexion)
+    return datos """

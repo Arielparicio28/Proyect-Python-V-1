@@ -1,23 +1,21 @@
-import { useEffect } from 'react';
-import './App.css';
-import ClienteTable from './components/ClienteTable';
-import { useClienteController } from './controllers/clienteController';
+
+import { RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
+import facturaRouter from './router/Router';
 
  
 function App() {
-  const { clientes, fetchClientes} = useClienteController();
- 
-  useEffect(() => {
-    fetchClientes();
-  }, [fetchClientes]);
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(facturaRouter)
+  )
  
   return (
     <div className="App">
       <h1>Clientes</h1>
-      <ClienteTable clientes={clientes} />
+      <RouterProvider router={router}/>
     </div>
   );
 }
- 
+
 export default App;
  

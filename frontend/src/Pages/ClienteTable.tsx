@@ -1,11 +1,13 @@
-import Cliente from "../interfaces/cliente";
+import { useEffect } from 'react';
+import { useClienteController } from '../controllers/clienteController';
 
-interface ClienteTableProps {
-  clientes: Cliente[];
+const ClienteTable = () => {
+  const { clientes, fetchClientes } = useClienteController();
 
-}
- 
-const ClienteTable: React.FC<ClienteTableProps> = ({ clientes}) => {
+  useEffect(() => {
+    fetchClientes();
+  }, [fetchClientes]);
+
   return (
     <table>
       <thead>
@@ -31,5 +33,5 @@ const ClienteTable: React.FC<ClienteTableProps> = ({ clientes}) => {
     </table>
   );
 };
- 
+
 export default ClienteTable;

@@ -32,9 +32,9 @@ function Navbar () {
 
         <Link className='flex items-center' to='/'>
           <img
-            src='logo.png'
+            src='onizea_logo.jpg'
             className='max-w-[80px] h-auto mb-4 ml-0 mt-4 md:max-w-[90px]'
-            alt='isologo-f5'
+            alt='onizea logo'
           />
         </Link>
         <div className='flex items-center mt-2 ml-auto'>

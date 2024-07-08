@@ -11,7 +11,6 @@ function App() {
  
   return (
     <div className="App">
-      <h1>Clientes</h1>
       <RouterProvider router={router}/>
     </div>
   );

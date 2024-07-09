@@ -45,6 +45,12 @@ def consultas(tabla):
             cursor.execute(sql)
             resultados = cursor.fetchall()
             encabezados = ["Numero Factura", "Codigo Cliente", "Nombre", "Fecha", "Total"]
+            
+        elif tabla == "Productos":
+            sql = "SELECT codigo_producto, nombre_producto,valor_producto FROM productos"
+            cursor.execute(sql)
+            resultados = cursor.fetchall()
+            encabezados = ["Código Producto","Nombre Producto","Valor"]
         
         return {"encabezados": encabezados, "resultados": resultados}
     except Exception as e:

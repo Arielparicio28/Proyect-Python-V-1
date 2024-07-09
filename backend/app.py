@@ -70,6 +70,12 @@ def obtener_listado_facturas():
         return jsonify({"error": resultado["error"]}), 500
     return jsonify({"encabezados": resultado["encabezados"], "resultados": resultado["resultados"]})
 
+@app.route('/productos', methods=['GET'])
+def obtener_productos():
+    resultado = consultas("Productos")
+    if "error" in resultado:
+        return jsonify({"error": resultado["error"]}), 500
+    return jsonify({"encabezados": resultado["encabezados"], "resultados": resultado["resultados"]})
 
 if __name__ == '__main__':
     app.run(debug=True)

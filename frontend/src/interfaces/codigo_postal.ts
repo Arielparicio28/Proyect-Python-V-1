@@ -1,5 +1,4 @@
-
-export default interface Codigo_Postal{
+export default interface Codigo{
                codigo: string;
                descripcion:string;
 }

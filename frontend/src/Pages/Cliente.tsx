@@ -2,20 +2,21 @@ import { useEffect} from 'react'
 import { ColumnDef } from '@tanstack/react-table'
 import { z } from 'zod'
 import { useClienteController } from '../controllers/clienteController';
-import cliente from '../interfaces/cliente';
+import cliente from '../validation/cliente';
 import { Link } from 'react-router-dom';
 import GoBack from '../components/GoBack';
-import { DataTable } from '../components/tables/cliente_tabla';
+import { DataTable } from '../components/tables/ClienteTabla';
 
 type clienteTable = z.infer<typeof cliente >
 
 type clienteColumns = Pick <
 clienteTable,
+|'codigo_cliente'
 |'nombre'
 |'apellido'
 |'cif_nie'
 |'codigo_postal'
-|'codigo_cliente'
+
 
 >;
 
@@ -26,7 +27,7 @@ const columns: ColumnDef<clienteColumns>[] = [
     cell: ({ row }) => {
       const idRow = row.original
       return (
-        <Link className='hover:text-orange-600 hover:underline ' to={`/clientes/${idRow.codigo_cliente}`}>
+        <Link className='hover:text-pink-600 hover:underline ' to={`/clientes/${idRow.codigo_cliente}`}>
           {row.getValue('nombre')}
         </Link>
       )
@@ -74,7 +75,7 @@ const ClienteTable = () => {
         </Link>
       </div>
 
-      <Link to='http://localhost:5173/clientes/:id' />
+      <Link to='http://localhost:5173/clientes/:codigo_cliente' />
       <div className='container mx-auto mt-5'>
         <h1 className='text-4xl font-semibold'>Nuestros Clientes</h1>
         <DataTable columns={columns} data={clientes} />

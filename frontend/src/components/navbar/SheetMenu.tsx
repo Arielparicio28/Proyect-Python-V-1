@@ -31,7 +31,7 @@ export function SheetMenu () {
 
           <Separator className='mb-4' />
           <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/clientes'>
+            <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/clientes'>
               Clientes
             </Link>
           </SheetClose>
@@ -68,6 +68,33 @@ export function SheetMenu () {
               Nueva gestion
             </Link>
           </SheetClose> */}
+
+<SheetTitle className='text-sm block'>CP</SheetTitle>
+<Separator className='mb-4' />
+<SheetClose asChild>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/cp'>
+    Código Postal
+  </Link>
+</SheetClose>
+
+
+<SheetTitle className='text-sm block'>Población</SheetTitle>
+<Separator className='mb-4' />
+<SheetClose asChild>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/poblacion'>
+    Población
+  </Link>
+</SheetClose>
+
+
+<SheetTitle className='text-sm block'>Provincias</SheetTitle>
+<Separator className='mb-4' />
+<SheetClose asChild>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/poblacion'>
+    Provincias
+  </Link>
+</SheetClose>
+
         </div>
       </SheetContent>
     </Sheet>

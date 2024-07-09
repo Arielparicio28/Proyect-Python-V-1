@@ -1,12 +1,12 @@
 import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
-import Cliente from '../interfaces/cliente';
 import { axiosPrivate } from '../services/axios_conexion';
+import Cliente from '../interfaces/clienteinterface';
 
  
 export const useClienteController = () => {
   const [clientes, setClientes] = useState<Cliente[]>([]);
   const [form, setForm] = useState<Cliente>({
-    codigo_cliente: null,
+    codigo_cliente: null ,
     nombre: '',
     apellido: '',
     codigo_postal: '',

@@ -1,5 +1,5 @@
 export default interface Cliente {
-  codigo_cliente: number;
+  codigo_cliente: number ;
   nombre: string;
   apellido: string;
   codigo_postal: string;

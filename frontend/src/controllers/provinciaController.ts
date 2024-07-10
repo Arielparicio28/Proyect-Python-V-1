@@ -17,10 +17,10 @@ export const useProvinciaController = () => {
  
   const fetchProvincia = async () => {
     try {
-      const response = await axiosPrivate.get('/provincia');
+      const response = await axiosPrivate.get('/provincias');
       setProvincia(response.data.resultados);
     } catch (error) {
-      console.error('Error fetching cp:', error);
+      console.error('Error fetching provincias:', error);
     }
   };
  
@@ -35,9 +35,9 @@ export const useProvinciaController = () => {
     e.preventDefault();
     try {
       if (form.codigo === null) {
-        await axiosPrivate.post('/provincia', form);
+        await axiosPrivate.post('/provincias', form);
       } else {
-        await axiosPrivate.put(`/provincia/${form.codigo}`, form);
+        await axiosPrivate.put(`/provincias/${form.codigo}`, form);
       }
       fetchProvincia();
       setForm({
@@ -57,10 +57,10 @@ export const useProvinciaController = () => {
   const handleDeleteCliente = async (codigo: string) => {
     if (codigo === null) return;
     try {
-      await axiosPrivate.delete(`/provincia/${codigo}`);
+      await axiosPrivate.delete(`/provincias/${codigo}`);
       fetchProvincia();
     } catch (error) {
-      console.error('Error eliminando población:', error);
+      console.error('Error eliminando provincia:', error);
     }
   };
  

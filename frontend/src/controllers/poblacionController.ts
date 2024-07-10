@@ -20,7 +20,7 @@ export const usePoblacionController = () => {
       const response = await axiosPrivate.get('/poblacion');
       setPoblacion(response.data.resultados);
     } catch (error) {
-      console.error('Error fetching cp:', error);
+      console.error('Error fetching poblaciones:', error);
     }
   };
  

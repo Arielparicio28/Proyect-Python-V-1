@@ -24,7 +24,7 @@ const columns: ColumnDef<cpColumns>[] = [
     cell: ({ row }) => {
       const idRow = row.original
       return (
-        <Link className='hover:text-pink-600 hover:underline ' to={`/provincia/${idRow.codigo}`}>
+        <Link className='hover:text-pink-600 hover:underline ' to={`/provincias/${idRow.codigo}`}>
           {row.getValue('codigo')}
         </Link>
       )
@@ -55,7 +55,7 @@ fetchProvincia();
         </Link>
       </div>
 
-      <Link to='http://localhost:5173/provincia/:codigo' />
+      <Link to='http://localhost:5173/provincias/:codigo' />
       <div className='container mx-auto mt-5'>
         <h1 className='text-4xl font-semibold'>Provincias</h1>
         <DataTable columns={columns} data={provincia} />

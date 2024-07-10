@@ -90,10 +90,19 @@ export function SheetMenu () {
 <SheetTitle className='text-sm block'>Provincias</SheetTitle>
 <Separator className='mb-4' />
 <SheetClose asChild>
-  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/poblacion'>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/provincias'>
     Provincias
   </Link>
 </SheetClose>
+
+<SheetTitle className='text-sm block'>Bancos</SheetTitle>
+<Separator className='mb-4' />
+<SheetClose asChild>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/bancos'>
+    Bancos
+  </Link>
+</SheetClose>
+
 
         </div>
       </SheetContent>

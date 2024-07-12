@@ -3,7 +3,7 @@ import { z } from 'zod'
 
 const cabecera = z.object({
  numero_factura:z.coerce.number().nullable(),
-  codigo_cliente:z.coerce.number(),
+  codigo_cliente:z.coerce.number().nullable(),
   codigo_postal: z.string().min(2, {
     message: 'Debe completar este campo'
   }),  
@@ -16,9 +16,9 @@ const cabecera = z.object({
   provincia_cliente: z.string().min(2, {
     message: 'Debe completar este campo'
   }),  
-  fecha:z.date(),
-  importe_producto:z.coerce.number(),
-  total_factura:z.coerce.number(),
+  fecha: z.union([z.date(), z.string()]),
+  importe_producto:z.coerce.number().nullable(),
+  total_factura:z.coerce.number().nullable(),
   iban: z.string().min(2, {
     message: 'Debe completar este campo'
   }),  

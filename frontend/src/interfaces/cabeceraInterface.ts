@@ -1,13 +1,13 @@
 export default interface Cabecera {
-  numero_factura:number;
-  codigo_cliente:number;
+  numero_factura:number | null;
+  codigo_cliente:number | null;
   codigo_postal:string;
   nombre_cliente:string;
   poblacion_cliente:string;
   provincia_cliente:string;
-  fecha:Date;
-  importe_producto:number;
-  total_factura:number;
+  fecha:Date | string;
+  importe_producto:number | null;
+  total_factura:number |null ;
   iban:string;
   nombre_banco:string;
   nombre_vendedor:string;
@@ -16,7 +16,7 @@ export default interface Cabecera {
   provincia_empresa:string;
   cif_nie_vendedor:string;
   codigo_postal_empresa:string;
-  codigo_banco:number;
+  codigo_banco:number | null;
   swift_bci:string;
   direccion_envio:string;
   codigo_postal_envio:string;

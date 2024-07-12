@@ -1,4 +1,4 @@
-import Cabecera from '../interfaces/cabecerainterface';
+import Cabecera from '../interfaces/cabeceraInterface';
 import { axiosPrivate } from '../services/axios_conexion';
 import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 

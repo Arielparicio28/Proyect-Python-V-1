@@ -31,7 +31,7 @@ export const usePoblacionController = () => {
     });
   };
  
-  const handleAddOrUpdateCliente = async (e: FormEvent) => {
+  const handleAddOrUpdatePoblacion = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (form.codigo === null) {
@@ -50,11 +50,11 @@ export const usePoblacionController = () => {
     }
   };
  
-  const handleEditCliente = (cp: Codigo) => {
+  const handleEditPoblacion = (cp: Codigo) => {
     setForm(cp);
   };
  
-  const handleDeleteCliente = async (codigo: string) => {
+  const handleDeletePoblacion = async (codigo: string) => {
     if (codigo === null) return;
     try {
       await axiosPrivate.delete(`/poblacion/${codigo}`);
@@ -67,9 +67,9 @@ export const usePoblacionController = () => {
   return {
     poblacion,
     fetchPoblacion,
-    handleAddOrUpdateCliente,
-    handleEditCliente,
-    handleDeleteCliente,
+    handleAddOrUpdatePoblacion,
+    handleEditPoblacion,
+    handleDeletePoblacion,
     form,
     handleChange
   };

@@ -31,7 +31,7 @@ export const useProvinciaController = () => {
     });
   };
  
-  const handleAddOrUpdateCliente = async (e: FormEvent) => {
+  const handleAddOrUpdateProvincia = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (form.codigo === null) {
@@ -50,11 +50,11 @@ export const useProvinciaController = () => {
     }
   };
  
-  const handleEditCliente = (cp: Codigo) => {
+  const handleEditProvincia = (cp: Codigo) => {
     setForm(cp);
   };
  
-  const handleDeleteCliente = async (codigo: string) => {
+  const handleDeleteProvincia = async (codigo: string) => {
     if (codigo === null) return;
     try {
       await axiosPrivate.delete(`/provincias/${codigo}`);
@@ -67,9 +67,9 @@ export const useProvinciaController = () => {
   return {
     provincia,
     fetchProvincia,
-    handleAddOrUpdateCliente,
-    handleEditCliente,
-    handleDeleteCliente,
+    handleAddOrUpdateProvincia,
+    handleEditProvincia,
+    handleDeleteProvincia,
     form,
     handleChange
   };

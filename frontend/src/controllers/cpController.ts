@@ -31,7 +31,7 @@ export const useCpController = () => {
     });
   };
  
-  const handleAddOrUpdateCliente = async (e: FormEvent) => {
+  const handleAddOrUpdateCp = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (form.codigo === null) {
@@ -50,11 +50,11 @@ export const useCpController = () => {
     }
   };
  
-  const handleEditCliente = (cp: Codigo) => {
+  const handleEditCp = (cp: Codigo) => {
     setForm(cp);
   };
  
-  const handleDeleteCliente = async (codigo: string) => {
+  const handleDeleteCp = async (codigo: string) => {
     if (codigo === null) return;
     try {
       await axiosPrivate.delete(`/cp/${codigo}`);
@@ -67,9 +67,9 @@ export const useCpController = () => {
   return {
     cp,
     fetchCp,
-    handleAddOrUpdateCliente,
-    handleEditCliente,
-    handleDeleteCliente,
+    handleAddOrUpdateCp,
+    handleEditCp,
+    handleDeleteCp,
     form,
     handleChange
   };

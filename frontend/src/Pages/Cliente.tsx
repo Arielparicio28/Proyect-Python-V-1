@@ -56,11 +56,7 @@ const columns: ColumnDef<clienteColumns>[] = [
 ]
 
 
-
-
-
-
-const ClienteTable = () => {
+const Cliente = () => {
   const { clientes, fetchClientes } = useClienteController();
 
   useEffect(() => {
@@ -84,4 +80,4 @@ const ClienteTable = () => {
   );
 };
 
-export default ClienteTable;
+export default Cliente;

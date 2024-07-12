@@ -34,7 +34,7 @@ export const useBancoController = () => {
     });
   };
  
-  const handleAddOrUpdateCliente = async (e: FormEvent) => {
+  const handleAddOrUpdateBanco = async (e: FormEvent) => {
     e.preventDefault();
     try {
       if (form.codigo_banco === null) {
@@ -55,11 +55,11 @@ export const useBancoController = () => {
     }
   };
  
-  const handleEditCliente = (bancos: Bancos) => {
+  const handleEditBanco = (bancos: Bancos) => {
     setForm(bancos);
   };
  
-  const handleDeleteCliente = async (codigo_banco: number | null) => {
+  const handleDeleteBanco = async (codigo_banco: number | null) => {
     if (codigo_banco === null) return;
     try {
       await axiosPrivate.delete(`/bancos/${codigo_banco}`);
@@ -72,9 +72,9 @@ export const useBancoController = () => {
   return {
     bancos,
     fetchBancos,
-    handleAddOrUpdateCliente,
-    handleEditCliente,
-    handleDeleteCliente,
+    handleAddOrUpdateBanco,
+    handleEditBanco,
+    handleDeleteBanco,
     form,
     handleChange
   };

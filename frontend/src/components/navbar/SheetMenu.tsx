@@ -103,6 +103,22 @@ export function SheetMenu () {
   </Link>
 </SheetClose>
 
+<SheetTitle className='text-sm block'>Productos</SheetTitle>
+<Separator className='mb-4' />
+<SheetClose asChild>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/productos'>
+    Productos
+  </Link>
+</SheetClose>
+
+<SheetTitle className='text-sm block'>Facturas</SheetTitle>
+<Separator className='mb-4' />
+<SheetClose asChild>
+  <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/facturas'>
+    Facturas
+  </Link>
+</SheetClose>
+
 
         </div>
       </SheetContent>

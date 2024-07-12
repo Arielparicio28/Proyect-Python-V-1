@@ -6,6 +6,8 @@ import Cp from '../Pages/Cp';
 import Poblacion from '../Pages/Poblacion';
 import Provincias from '../Pages/Provincias';
 import Bancos from '../Pages/Bancos';
+import Productos from '../Pages/Productos';
+import Facturas from '../Pages/Facturas';
 
 
 const facturaRouter = (
@@ -17,6 +19,8 @@ const facturaRouter = (
       <Route path='poblacion' element={<Poblacion/>}/>
       <Route path='provincias' element = {<Provincias/>}/>
       <Route path='bancos' element = {<Bancos/>}/>
+      <Route path='productos' element = {<Productos/>}/>
+      <Route path='facturas' element = {<Facturas/>}/>
     </Route>
     </Route>
 

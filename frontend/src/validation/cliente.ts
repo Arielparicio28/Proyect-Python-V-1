@@ -2,7 +2,7 @@ import { z } from 'zod'
 //Validación cliente
 
 const cliente = z.object({
-  codigo_cliente: z.coerce.number(),
+  codigo_cliente: z.coerce.number().nullable(),
     nombre: z.string().min(2, {
         message: 'Debe completar este campo'
       }),

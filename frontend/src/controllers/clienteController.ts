@@ -2,8 +2,6 @@ import { useState, useEffect, FormEvent, ChangeEvent } from 'react';
 import { axiosPrivate } from '../services/axios_conexion';
 import Cliente from '../interfaces/clienteinterface';
 
-
- 
 export const useClienteController = () => {
   const [clientes, setClientes] = useState<Cliente[]>([]);
   const [form, setForm] = useState<Cliente>({
@@ -14,9 +12,10 @@ export const useClienteController = () => {
     cif_nie:''
  
   });
- 
+  const [codigoPostales, setCodigoPostales] = useState<string[]>([]);
   useEffect(() => {
     fetchClientes();
+    fetchCodigoPostales()
   }, []);
  
   const fetchClientes = async () => {
@@ -25,6 +24,15 @@ export const useClienteController = () => {
       setClientes(response.data.resultados);
     } catch (error) {
       console.error('Error fetching clientes:', error);
+    }
+  };
+
+  const fetchCodigoPostales = async () => {
+    try {
+      const response = await axiosPrivate.get('/cp');
+      setCodigoPostales(response.data.resultados.map((cp:any) => cp.codigo));
+    } catch (error) {
+      console.error('Error fetching codigo postales:', error);
     }
   };
  
@@ -77,6 +85,7 @@ export const useClienteController = () => {
     handleEditCliente,
     handleDeleteCliente,
     form,
-    handleChange
+    handleChange,
+    codigoPostales
   };
 };

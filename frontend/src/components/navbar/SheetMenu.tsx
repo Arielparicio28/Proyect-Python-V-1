@@ -27,7 +27,7 @@ export function SheetMenu () {
         </div>
         <div className='text-left mb-6'>
 
-          <SheetTitle className='text-sm block'>Clientes</SheetTitle>
+          <SheetTitle className='text-sm block'>CLIENTES</SheetTitle>
 
           <Separator className='mb-4' />
           <SheetClose asChild>
@@ -35,9 +35,10 @@ export function SheetMenu () {
               Clientes
             </Link>
           </SheetClose>
-         {/*  <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/newproject'>
-              Nuevo proyecto
+           <SheetClose asChild>
+
+            <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/cliente'>
+              Alta Cliente
             </Link>
           </SheetClose>
         </div>
@@ -54,20 +55,6 @@ export function SheetMenu () {
               Nueva convocatoria
             </Link>
           </SheetClose>
-        </div>
-        <div className='text-left mt-10 mb-6'>
-          <SheetTitle className='text-sm block'>GESTIÓN DE CONVOCATORIAS</SheetTitle>
-          <Separator className='mb-4' />
-          <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/allmanagement'>
-              Gestión de convocatorias
-            </Link>
-          </SheetClose>
-          <SheetClose asChild>
-            <Link className='block mb-4 hover:text-orange-600' to='http://localhost:5173/management'>
-              Nueva gestion
-            </Link>
-          </SheetClose> */}
 
 <SheetTitle className='text-sm block'>CP</SheetTitle>
 <Separator className='mb-4' />
@@ -78,7 +65,7 @@ export function SheetMenu () {
 </SheetClose>
 
 
-<SheetTitle className='text-sm block'>Población</SheetTitle>
+<SheetTitle className='text-sm block'>POBLACIÓN</SheetTitle>
 <Separator className='mb-4' />
 <SheetClose asChild>
   <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/poblacion'>
@@ -87,7 +74,7 @@ export function SheetMenu () {
 </SheetClose>
 
 
-<SheetTitle className='text-sm block'>Provincias</SheetTitle>
+<SheetTitle className='text-sm block'>PROVINCIAS</SheetTitle>
 <Separator className='mb-4' />
 <SheetClose asChild>
   <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/provincias'>
@@ -95,7 +82,7 @@ export function SheetMenu () {
   </Link>
 </SheetClose>
 
-<SheetTitle className='text-sm block'>Bancos</SheetTitle>
+<SheetTitle className='text-sm block'>BANCOS</SheetTitle>
 <Separator className='mb-4' />
 <SheetClose asChild>
   <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/bancos'>
@@ -103,7 +90,7 @@ export function SheetMenu () {
   </Link>
 </SheetClose>
 
-<SheetTitle className='text-sm block'>Productos</SheetTitle>
+<SheetTitle className='text-sm block'>PRODUCTOS</SheetTitle>
 <Separator className='mb-4' />
 <SheetClose asChild>
   <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/productos'>
@@ -111,7 +98,7 @@ export function SheetMenu () {
   </Link>
 </SheetClose>
 
-<SheetTitle className='text-sm block'>Facturas</SheetTitle>
+<SheetTitle className='text-sm block'>FACTURAS</SheetTitle>
 <Separator className='mb-4' />
 <SheetClose asChild>
   <Link className='block mb-4 hover:text-pink-600' to='http://localhost:5173/facturas'>

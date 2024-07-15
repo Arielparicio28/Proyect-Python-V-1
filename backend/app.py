@@ -1,4 +1,4 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 import sys
 import os
@@ -25,6 +25,33 @@ def obtener_clientes():
         return jsonify({"error": resultado["error"]}), 500
     return jsonify({"encabezados": resultado["encabezados"], "resultados": resultado["resultados"]})
 
+
+@app.route('/cliente', methods=['POST'])
+def agregar_cliente():
+    datos = request.json
+    conexion = obtener_conexion()
+    if conexion is None:
+        return jsonify({"error": "No se pudo establecer la conexión a la base de datos."}), 500
+
+    try:
+        cursor = conexion.cursor()
+        # Verifico si el código postal existe
+        cursor.execute("SELECT codigo FROM codigo_postal WHERE codigo = %s", (datos['codigo_postal'],))
+        codigo_postal = cursor.fetchone()
+        if codigo_postal is None:
+            return jsonify({"error": "Código postal no válido."}), 400
+
+        sql = "INSERT INTO clientes (nombre, apellido, codigo_postal, cif_nie) VALUES (%s, %s, %s, %s)"
+        valores = (datos['nombre'], datos['apellido'], datos['codigo_postal'], datos['cif_nie'])
+        cursor.execute(sql, valores)
+        conexion.commit()
+        return jsonify({"mensaje": "Cliente agregado exitosamente."}), 201
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+ 
+ 
+ 
+ 
  
 @app.route('/cp', methods=['GET'])
 def obtener_codigo_postal():
